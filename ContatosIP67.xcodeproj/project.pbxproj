@@ -13,6 +13,8 @@
 		0DB38B0E166E3FA60056C3E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0DB38B0C166E3FA60056C3E8 /* InfoPlist.strings */; };
 		0DB38B10166E3FA60056C3E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB38B0F166E3FA60056C3E8 /* main.m */; };
 		0DB38B14166E3FA60056C3E8 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB38B13166E3FA60056C3E8 /* CMPAppDelegate.m */; };
+		0DB38B1D166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB38B1B166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m */; };
+		0DB38B1E166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB38B1C166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		0DB38B03166E3FA60056C3E8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0DB38B05166E3FA60056C3E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0DB38B07166E3FA60056C3E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0DB38B0B166E3FA60056C3E8 /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
+		0DB38B0B166E3FA60056C3E8 /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
 		0DB38B0D166E3FA60056C3E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0DB38B0F166E3FA60056C3E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0DB38B11166E3FA60056C3E8 /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
-		0DB38B12166E3FA60056C3E8 /* CMPAppDelegate.h */ = {isa = PBXFileReference; path = CMPAppDelegate.h; sourceTree = "<group>"; };
+		0DB38B11166E3FA60056C3E8 /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
+		0DB38B12166E3FA60056C3E8 /* CMPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
 		0DB38B13166E3FA60056C3E8 /* CMPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
+		0DB38B1A166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPFormularioContatoViewControllerViewController.h; sourceTree = "<group>"; };
+		0DB38B1B166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPFormularioContatoViewControllerViewController.m; sourceTree = "<group>"; };
+		0DB38B1C166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPFormularioContatoViewControllerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,9 @@
 			children = (
 				0DB38B12166E3FA60056C3E8 /* CMPAppDelegate.h */,
 				0DB38B13166E3FA60056C3E8 /* CMPAppDelegate.m */,
+				0DB38B1A166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.h */,
+				0DB38B1B166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m */,
+				0DB38B1C166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib */,
 				0DB38B0A166E3FA60056C3E8 /* Supporting Files */,
 			);
 			path = ContatosIP67;
@@ -142,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB38B0E166E3FA60056C3E8 /* InfoPlist.strings in Resources */,
+				0DB38B1E166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +163,7 @@
 			files = (
 				0DB38B10166E3FA60056C3E8 /* main.m in Sources */,
 				0DB38B14166E3FA60056C3E8 /* CMPAppDelegate.m in Sources */,
+				0DB38B1D166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +232,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
 				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -233,7 +245,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
 				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -257,6 +271,7 @@
 				0DB38B19166E3FA60056C3E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

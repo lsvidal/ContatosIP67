@@ -7,6 +7,7 @@
 //
 
 #import "CMPAppDelegate.h"
+#import "CMPFormularioContatoViewControllerViewController.h"
 
 @implementation CMPAppDelegate
 
@@ -16,6 +17,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    CMPFormularioContatoViewControllerViewController *formulario = [[CMPFormularioContatoViewControllerViewController alloc] init];
+    self.window.rootViewController = formulario;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
