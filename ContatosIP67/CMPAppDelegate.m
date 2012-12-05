@@ -20,7 +20,9 @@
     //CMPFormularioContatoViewControllerViewController *formulario = [[CMPFormularioContatoViewControllerViewController alloc] init];
     //self.window.rootViewController = formulario;
     ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
-    self.window.rootViewController = lista;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
+    self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
