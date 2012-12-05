@@ -10,13 +10,14 @@
 
 @interface CMPFormularioContatoViewControllerViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *txtIdade;
-
 @property(nonatomic, weak) IBOutlet UITextField *txtNome;
 @property(nonatomic, weak) IBOutlet UITextField *txtTelefone;
 @property(nonatomic, weak) IBOutlet UITextField *txtEmail;
 @property(nonatomic, weak) IBOutlet UITextField *txtEndereco;
 @property(nonatomic, weak) IBOutlet UITextField *txtSite;
+@property (weak, nonatomic) IBOutlet UITextField *txtIdade;
+
+@property(strong) NSMutableArray *contatos;
 
 -(IBAction)pegaDadosDoFormulario:(id)sender;
 

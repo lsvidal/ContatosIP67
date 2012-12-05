@@ -14,10 +14,17 @@
 @end
 
 @implementation CMPFormularioContatoViewControllerViewController
-@synthesize txtIdade;
 
-@synthesize txtNome, txtEmail, txtEndereco, txtTelefone, txtSite;
+@synthesize contatos;
+@synthesize txtNome, txtEmail, txtEndereco, txtTelefone, txtSite, txtIdade;
 
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.contatos = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 -(IBAction)pegaDadosDoFormulario:(id)sender {
     Contato *contato = [[Contato alloc] init];
     contato.nome = txtNome.text;
@@ -26,7 +33,9 @@
     contato.site = txtSite.text;
     contato.idade = txtIdade.text;
     contato.telefone = txtTelefone.text;
-    NSLog(@"dados: %@", contato.nome);
+    
+    [self.contatos addObject:contato];
+    NSLog(@"dados: %@", self.contatos);
     [self.view endEditing:YES];
 }
 
