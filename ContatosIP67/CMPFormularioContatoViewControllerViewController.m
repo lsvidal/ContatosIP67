@@ -22,6 +22,7 @@
     self = [super init];
     if (self) {
         self.contatos = [[NSMutableArray alloc] init];
+        self.modalTransitionStyle =UIModalTransitionStyleFlipHorizontal;
     }
     return self;
 }

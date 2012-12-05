@@ -7,7 +7,7 @@
 //
 
 #import "ListaContatosViewController.h"
-
+#import "CMPFormularioContatoViewControllerViewController.h"
 @implementation ListaContatosViewController
 
 -(id) init {
@@ -19,4 +19,10 @@
     }
     return self;
 }
+
+-(void) exibeFormulario {
+    CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] init];
+    [self presentModalViewController:form animated:YES];
+}
+
 @end
