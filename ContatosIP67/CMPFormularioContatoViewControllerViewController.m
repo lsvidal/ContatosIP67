@@ -7,6 +7,7 @@
 //
 
 #import "CMPFormularioContatoViewControllerViewController.h"
+#import "Contato.h"
 
 @interface CMPFormularioContatoViewControllerViewController ()
 
@@ -18,14 +19,30 @@
 @synthesize txtNome, txtEmail, txtEndereco, txtTelefone, txtSite;
 
 -(IBAction)pegaDadosDoFormulario:(id)sender {
-    NSMutableDictionary *dadosDoContato = [[NSMutableDictionary alloc] init];
-    [dadosDoContato setObject:[txtNome text] forKey:@"nome"];
-    [dadosDoContato setObject:[txtEmail text] forKey:@"email"];
-    [dadosDoContato setObject:[txtTelefone text] forKey:@"telefone"];
-    [dadosDoContato setObject:[txtEndereco text] forKey:@"endereco"];
-    [dadosDoContato setObject:[txtSite text] forKey:@"site"];
-    [dadosDoContato setObject:[txtIdade text] forKey:@"idade"];
-    NSLog(@"dados: %@", dadosDoContato);
+    Contato *contato = [[Contato alloc] init];
+    contato.nome = txtNome.text;
+    contato.email = txtEmail.text;
+    contato.endereco = txtEndereco.text;
+    contato.site = txtSite.text;
+    contato.idade = txtIdade.text;
+    contato.telefone = txtTelefone.text;
+    NSLog(@"dados: %@", contato.nome);
+    [self.view endEditing:YES];
+}
+
+-(IBAction)proximoElemento:(UITextField *) textField {
+    NSLog(@"Botão pressionado");
+    if (textField == self.txtNome) {
+        [self.txtTelefone becomeFirstResponder];
+    } else if (textField == self.txtTelefone) {
+        [self.txtEmail becomeFirstResponder];
+    } else if (textField == self.txtEmail) {
+        [self.txtEndereco becomeFirstResponder];
+    } else if (textField == self.txtEndereco) {
+        [self.txtSite becomeFirstResponder];
+    } else if (textField == self.txtSite) {
+        [self.txtIdade becomeFirstResponder];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

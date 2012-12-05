@@ -20,4 +20,6 @@
 
 -(IBAction)pegaDadosDoFormulario:(id)sender;
 
+-(IBAction)proximoElemento:(UITextField *) textField;
+
 @end
