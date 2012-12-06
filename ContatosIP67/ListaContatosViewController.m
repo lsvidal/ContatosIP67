@@ -11,6 +11,8 @@
 
 @implementation ListaContatosViewController
 
+@synthesize contatos;
+
 -(id) init {
     if (self = [super init]) {
         self.navigationItem.title = @"Contatos";
@@ -23,8 +25,14 @@
 
 -(void) exibeFormulario {
     CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] init];
+    form.contatos = self.contatos;
+    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    NSLog(@"Total cadastrado %d", [self.contatos count]);
 }
 
 @end

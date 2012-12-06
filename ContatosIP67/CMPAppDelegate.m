@@ -12,14 +12,18 @@
 @implementation CMPAppDelegate
 
 @synthesize window = _window;
+@synthesize contatos;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.contatos = [[NSMutableArray alloc] init];
+    
     //CMPFormularioContatoViewControllerViewController *formulario = [[CMPFormularioContatoViewControllerViewController alloc] init];
     //self.window.rootViewController = formulario;
     ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
+    lista.contatos = self.contatos;
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
     self.window.rootViewController = nav;
