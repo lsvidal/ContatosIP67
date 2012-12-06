@@ -29,15 +29,27 @@
         UIBarButtonItem *cancela = [[UIBarButtonItem alloc] initWithTitle:@"Cancela" style:UIBarButtonItemStylePlain target:self action:@selector(escondeFormulario)];
         
         self.navigationItem.leftBarButtonItem = cancela;
+        
+        UIBarButtonItem *adiciona = [[UIBarButtonItem alloc] initWithTitle:@"Adiciona" style:UIBarButtonItemStylePlain target:self action:@selector(criaContato)];
+        self.navigationItem.rightBarButtonItem = adiciona;
     }
     return self;
+}
+
+-(void) criaContato {
+    Contato *contato = [self pegaDadosDoFormulario];
+    [self.contatos addObject:contato];
+    NSLog(@"Contato: %@", contato.nome);
+    NSLog(@"dados: %d", [self.contatos count]);
+    NSLog(@"Contato no array %@",[[self.contatos objectAtIndex:[self.contatos count]-1] nome]);
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void) escondeFormulario {
     [self dismissModalViewControllerAnimated:YES];
 }
 
--(IBAction)pegaDadosDoFormulario:(id)sender {
+-(Contato *)pegaDadosDoFormulario {
     Contato *contato = [[Contato alloc] init];
     contato.nome = txtNome.text;
     contato.email = txtEmail.text;
@@ -46,9 +58,7 @@
     contato.idade = txtIdade.text;
     contato.telefone = txtTelefone.text;
     
-    [self.contatos addObject:contato];
-    NSLog(@"dados: %@", self.contatos);
-    [self.view endEditing:YES];
+    return contato;
 }
 
 -(IBAction)proximoElemento:(UITextField *) textField {
