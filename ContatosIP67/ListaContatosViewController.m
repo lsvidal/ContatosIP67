@@ -8,6 +8,7 @@
 
 #import "ListaContatosViewController.h"
 #import "CMPFormularioContatoViewControllerViewController.h"
+#import "Contato.h"
 
 @implementation ListaContatosViewController
 
@@ -32,7 +33,29 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
-    NSLog(@"Total cadastrado %d", [self.contatos count]);
+    [self.tableView reloadData];
+}
+
+//Esse já é a implementação default
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.contatos count];
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+
+    Contato *contato = [self.contatos objectAtIndex:indexPath.row];
+    cell.textLabel.text = contato.nome;
+    return cell;
 }
 
 @end
