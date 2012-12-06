@@ -23,9 +23,20 @@
     if (self) {
         self.contatos = [[NSMutableArray alloc] init];
         self.modalTransitionStyle =UIModalTransitionStyleFlipHorizontal;
+        
+        self.navigationItem.title = @"Cadastro";
+        
+        UIBarButtonItem *cancela = [[UIBarButtonItem alloc] initWithTitle:@"Cancela" style:UIBarButtonItemStylePlain target:self action:@selector(escondeFormulario)];
+        
+        self.navigationItem.leftBarButtonItem = cancela;
     }
     return self;
 }
+
+-(void) escondeFormulario {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 -(IBAction)pegaDadosDoFormulario:(id)sender {
     Contato *contato = [[Contato alloc] init];
     contato.nome = txtNome.text;

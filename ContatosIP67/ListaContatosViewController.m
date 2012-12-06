@@ -8,6 +8,7 @@
 
 #import "ListaContatosViewController.h"
 #import "CMPFormularioContatoViewControllerViewController.h"
+
 @implementation ListaContatosViewController
 
 -(id) init {
@@ -22,7 +23,8 @@
 
 -(void) exibeFormulario {
     CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] init];
-    [self presentModalViewController:form animated:YES];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
+    [self presentModalViewController:nav animated:YES];
 }
 
 @end
