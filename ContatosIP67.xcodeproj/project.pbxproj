@@ -35,6 +35,7 @@
 		0DB38B1A166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPFormularioContatoViewControllerViewController.h; sourceTree = "<group>"; };
 		0DB38B1B166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPFormularioContatoViewControllerViewController.m; sourceTree = "<group>"; };
 		0DB38B1C166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPFormularioContatoViewControllerViewController.xib; sourceTree = "<group>"; };
+		0DB3A1BE16722E2C0094FC78 /* ListaContatosProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListaContatosProtocol.h; sourceTree = "<group>"; };
 		0DB3A909166F80AF00355D05 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		0DB3A90A166F80AF00355D05 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +90,7 @@
 				0DB38B13166E3FA60056C3E8 /* CMPAppDelegate.m */,
 				0DB38B1A166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.h */,
 				0DB38B1B166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.m */,
+				0DB3A1BE16722E2C0094FC78 /* ListaContatosProtocol.h */,
 				0D376946166F912B006017DD /* ListaContatosViewController.h */,
 				0D376947166F912B006017DD /* ListaContatosViewController.m */,
 				0DB38B1C166E40C80056C3E8 /* CMPFormularioContatoViewControllerViewController.xib */,

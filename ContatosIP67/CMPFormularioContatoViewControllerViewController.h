@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Contato.h"
+#import "ListaContatosProtocol.h"
 
 @interface CMPFormularioContatoViewControllerViewController : UIViewController
 
@@ -20,6 +21,7 @@
 
 @property(strong) NSMutableArray *contatos;
 @property(strong) Contato *contatoEdicao;
+@property(weak) id<ListaContatosProtocol> delegate;
 
 -(IBAction)proximoElemento:(UITextField *) textField;
 -(id) initWithContato:(Contato *)contato;

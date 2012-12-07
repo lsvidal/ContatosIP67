@@ -12,7 +12,7 @@
 
 @implementation ListaContatosViewController
 
-@synthesize contatos;
+@synthesize contatos, linhaDestaque;
 
 -(id) init {
     if (self = [super init]) {
@@ -21,6 +21,7 @@
         UIBarButtonItem *botaoExibirFormulario = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(exibeFormulario)];
         self.navigationItem.rightBarButtonItem = botaoExibirFormulario;
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        linhaDestaque = -1;
     }
     return self;
 }
@@ -28,6 +29,7 @@
 -(void) exibeFormulario {
     CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] init];
     form.contatos = self.contatos;
+    form.delegate = self;
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
@@ -35,6 +37,14 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    if (linhaDestaque >= 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:linhaDestaque inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        linhaDestaque = -1;
+    }
 }
 
 //Esse já é a implementação default
@@ -71,7 +81,17 @@
     Contato *contato = [self.contatos objectAtIndex:indexPath.row];
     CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] initWithContato:contato];
     form.contatos = self.contatos;
+    form.delegate = self;
+    
     [self.navigationController pushViewController:form animated:YES];
+}
+
+-(void) contatoAtualizado:(Contato *) contato {
+    linhaDestaque = [self.contatos indexOfObject:contato];
+}
+
+-(void) contatoAdicionado:(Contato *) contato {
+    linhaDestaque = [self.contatos indexOfObject:contato];
 }
 
 @end

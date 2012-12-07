@@ -17,6 +17,7 @@
 
 @synthesize contatos, contatoEdicao;
 @synthesize txtNome, txtEmail, txtEndereco, txtTelefone, txtSite, txtIdade;
+@synthesize delegate;
 
 -(id) init {
     self = [super init];
@@ -52,6 +53,9 @@
     NSLog(@"dados: %d", [self.contatos count]);
     NSLog(@"Contato no array %@",[[self.contatos objectAtIndex:[self.contatos count]-1] nome]);
     [self dismissModalViewControllerAnimated:YES];
+    if(self.delegate) {
+        [self.delegate contatoAdicionado:contato];
+    }
 }
 
 -(void) escondeFormulario {
@@ -88,8 +92,11 @@
 }
 
 -(void)atualizacontato {
-    [self pegaDadosDoFormulario];
+    Contato * contato = [self pegaDadosDoFormulario];
     [self.navigationController popViewControllerAnimated:YES];
+    if(self.delegate) {
+        [self.delegate contatoAtualizado:contato];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
