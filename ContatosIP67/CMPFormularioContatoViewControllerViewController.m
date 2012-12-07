@@ -15,7 +15,7 @@
 
 @implementation CMPFormularioContatoViewControllerViewController
 
-@synthesize contatos, contatoEdicao;
+@synthesize contatoEdicao;
 @synthesize txtNome, txtEmail, txtEndereco, txtTelefone, txtSite, txtIdade;
 @synthesize delegate;
 
@@ -48,10 +48,7 @@
 
 -(void) criaContato {
     Contato *contato = [self pegaDadosDoFormulario];
-    [self.contatos addObject:[self pegaDadosDoFormulario]];
     NSLog(@"Contato: %@", contato.nome);
-    NSLog(@"dados: %d", [self.contatos count]);
-    NSLog(@"Contato no array %@",[[self.contatos objectAtIndex:[self.contatos count]-1] nome]);
     [self dismissModalViewControllerAnimated:YES];
     if(self.delegate) {
         [self.delegate contatoAdicionado:contato];

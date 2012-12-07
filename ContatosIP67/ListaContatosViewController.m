@@ -28,7 +28,6 @@
 
 -(void) exibeFormulario {
     CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] init];
-    form.contatos = self.contatos;
     form.delegate = self;
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
@@ -80,7 +79,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Contato *contato = [self.contatos objectAtIndex:indexPath.row];
     CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] initWithContato:contato];
-    form.contatos = self.contatos;
     form.delegate = self;
     
     [self.navigationController pushViewController:form animated:YES];
@@ -91,7 +89,9 @@
 }
 
 -(void) contatoAdicionado:(Contato *) contato {
+    [self.contatos addObject:contato];
     linhaDestaque = [self.contatos indexOfObject:contato];
+    [self.tableView reloadData];
 }
 
 @end

@@ -19,7 +19,6 @@
 @property(nonatomic, weak) IBOutlet UITextField *txtSite;
 @property (weak, nonatomic) IBOutlet UITextField *txtIdade;
 
-@property(strong) NSMutableArray *contatos;
 @property(strong) Contato *contatoEdicao;
 @property(weak) id<ListaContatosProtocol> delegate;
 
