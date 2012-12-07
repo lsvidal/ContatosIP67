@@ -15,7 +15,7 @@
 
 @implementation CMPFormularioContatoViewControllerViewController
 
-@synthesize contatos;
+@synthesize contatos, contatoEdicao;
 @synthesize txtNome, txtEmail, txtEndereco, txtTelefone, txtSite, txtIdade;
 
 -(id) init {
@@ -35,9 +35,19 @@
     return self;
 }
 
+-(id) initWithContato:(Contato *)_contato {
+    self = [super init];
+    if(self) {
+        self.contatoEdicao = _contato;
+        UIBarButtonItem *confirmar = [[UIBarButtonItem alloc] initWithTitle:@"confirmar" style:UIBarButtonItemStylePlain target:self action:@selector(atualizacontato)];
+        self.navigationItem.rightBarButtonItem = confirmar;
+    }
+    return self;
+}
+
 -(void) criaContato {
     Contato *contato = [self pegaDadosDoFormulario];
-    [self.contatos addObject:contato];
+    [self.contatos addObject:[self pegaDadosDoFormulario]];
     NSLog(@"Contato: %@", contato.nome);
     NSLog(@"dados: %d", [self.contatos count]);
     NSLog(@"Contato no array %@",[[self.contatos objectAtIndex:[self.contatos count]-1] nome]);
@@ -49,15 +59,17 @@
 }
 
 -(Contato *)pegaDadosDoFormulario {
-    Contato *contato = [[Contato alloc] init];
-    contato.nome = txtNome.text;
-    contato.email = txtEmail.text;
-    contato.endereco = txtEndereco.text;
-    contato.site = txtSite.text;
-    contato.idade = txtIdade.text;
-    contato.telefone = txtTelefone.text;
+    if (!self.contatoEdicao) {
+        self.contatoEdicao = [[Contato alloc] init];
+    }
+    contatoEdicao.nome = txtNome.text;
+    contatoEdicao.email = txtEmail.text;
+    contatoEdicao.endereco = txtEndereco.text;
+    contatoEdicao.site = txtSite.text;
+    contatoEdicao.idade = txtIdade.text;
+    contatoEdicao.telefone = txtTelefone.text;
     
-    return contato;
+    return contatoEdicao;
 }
 
 -(IBAction)proximoElemento:(UITextField *) textField {
@@ -75,6 +87,11 @@
     }
 }
 
+-(void)atualizacontato {
+    [self pegaDadosDoFormulario];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -88,6 +105,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if(self.contatoEdicao) {
+        txtNome.text = contatoEdicao.nome;
+        txtEmail.text = contatoEdicao.email;
+        txtEndereco.text = contatoEdicao.endereco;
+        txtTelefone.text = contatoEdicao.telefone;
+        txtSite.text = contatoEdicao.site;
+        txtIdade.text = contatoEdicao.idade;
+    }
 }
 
 - (void)viewDidUnload

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contato.h"
 
 @interface CMPFormularioContatoViewControllerViewController : UIViewController
 
@@ -18,7 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtIdade;
 
 @property(strong) NSMutableArray *contatos;
+@property(strong) Contato *contatoEdicao;
 
 -(IBAction)proximoElemento:(UITextField *) textField;
+-(id) initWithContato:(Contato *)contato;
 
 @end

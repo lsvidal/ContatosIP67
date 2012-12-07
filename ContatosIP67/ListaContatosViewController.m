@@ -67,4 +67,11 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Contato *contato = [self.contatos objectAtIndex:indexPath.row];
+    CMPFormularioContatoViewControllerViewController *form = [[CMPFormularioContatoViewControllerViewController alloc] initWithContato:contato];
+    form.contatos = self.contatos;
+    [self.navigationController pushViewController:form animated:YES];
+}
+
 @end
